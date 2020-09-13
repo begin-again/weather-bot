@@ -24,7 +24,11 @@ const getWeatherData = async () => {
 };
 
 const generateWeatherMessage =
-    ({ name, weather, main }) => `The weather in ${name}: ${weather[0].description}. Current temperature is ${main.temp}, with a low temp of ${main.temp_min} and high of ${main.temp_high}.`;
+    ({ name, weather, main }) => `
+      The weather in ${name}: ${weather[0].description}. 
+      Current temperature is ${main.temp}, 
+      with a low temp of ${main.temp_min} and high of ${main.temp_high}.
+      `.replace(/ {2,}/g,'')
 
 const main = async () => {
   const weatherData = await getWeatherData();
